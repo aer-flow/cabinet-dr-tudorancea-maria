@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Initialize Lenis Smooth Scroll
+    // 1. Initialize Lenis Smooth Scroll (Snappier)
     const lenis = new Lenis({
-        duration: 1.2,
+        duration: 0.8, // Reduced from 1.2
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true
     });
@@ -62,34 +62,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. GSAP Animations Setup
     const heroTl = gsap.timeline();
-    heroTl.fromTo(".gsap-nav", { y: -100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" })
-          .fromTo(".hero-title .word", { y: 100, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: "power4.out" }, "-=0.5")
-          .fromTo(".gsap-fade-up", { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.out" }, "-=0.5");
+    heroTl.fromTo(".gsap-nav", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" })
+          .fromTo(".hero-title .word", { y: 50, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05, duration: 0.8, ease: "power4.out" }, "-=0.4")
+          .fromTo(".gsap-fade-up", { y: 20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.7, ease: "power2.out" }, "-=0.4");
 
     gsap.to(".hero-img-container img", {
-        yPercent: 20, ease: "none",
+        yPercent: 10, ease: "none", // Reduced from 20
         scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
     });
 
-    // Liquid Journey Steps
+    // Journey Steps (Faster)
     gsap.fromTo(".step-card", 
-        { y: 30, opacity: 0, scale: 0.98 },
+        { y: 20, opacity: 0, scale: 0.99 },
         { 
-            y: 0, opacity: 1, scale: 1, duration: 1.8, stagger: 0.3, ease: "expo.out",
+            y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.15, ease: "power2.out",
             scrollTrigger: {
                 trigger: ".journey-grid",
-                start: "top 85%",
+                start: "top 90%",
                 toggleActions: "play none none reverse"
             }
         }
     );
 
-    // Generic Fade Up for other elements (excluding journey steps)
+    // Generic Fade Up (Faster)
     gsap.utils.toArray('.gs-fade-up:not(.step-card)').forEach(element => {
         gsap.fromTo(element, 
-            { y: 60, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.5, ease: "power2.out",
-              scrollTrigger: { trigger: element, start: "top 90%", toggleActions: "play none none reverse" }
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out",
+              scrollTrigger: { trigger: element, start: "top 95%", toggleActions: "play none none reverse" }
             }
         );
     });
@@ -109,18 +109,18 @@ document.addEventListener("DOMContentLoaded", () => {
         let img = container.querySelector('img');
         gsap.fromTo(container,
             { clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
-            { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "expo.out",
+            { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 0.7, ease: "power2.out",
               scrollTrigger: { 
                   trigger: container, 
-                  start: "top 95%", // Start earlier
+                  start: "top 95%",
                   toggleActions: "play none none none"
               }
             }
         );
         if(img) {
             gsap.fromTo(img,
-                { scale: 1.2, yPercent: -10 },
-                { scale: 1, yPercent: 10, duration: 1.5, ease: "power2.out",
+                { scale: 1.1, yPercent: -5 },
+                { scale: 1, yPercent: 5, duration: 1, ease: "power2.out",
                   scrollTrigger: { trigger: container, start: "top 100%", end: "bottom 0%", scrub: 1 }
                 }
             );
