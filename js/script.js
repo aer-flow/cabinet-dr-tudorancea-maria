@@ -63,7 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. GSAP Animations Setup
     const heroTl = gsap.timeline();
     heroTl.fromTo(".gsap-nav", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" })
-          .fromTo(".hero-title .word", { y: 50, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05, duration: 0.8, ease: "power4.out" }, "-=0.4")
+          .fromTo(".hero-img-container", 
+            { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)", opacity: 0 }, 
+            { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", opacity: 1, duration: 1.2, ease: "power4.inOut" }, "-=0.5")
+          .fromTo(".hero-img-container img", 
+            { scale: 1.2 }, 
+            { scale: 1, duration: 1.8, ease: "power2.out" }, "-=1.2")
+          .fromTo(".hero-title .word", { y: 50, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05, duration: 0.8, ease: "power4.out" }, "-=0.8")
           .fromTo(".gsap-fade-up", { y: 20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.7, ease: "power2.out" }, "-=0.4");
 
     gsap.to(".hero-img-container img", {
