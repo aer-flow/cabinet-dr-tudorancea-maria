@@ -241,11 +241,28 @@ nav {
 .booking-container { max-width: 1100px; margin: 0 auto; background: rgba(255,255,255,0.02); padding: 6rem; border-radius: 48px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px); box-shadow: 0 40px 100px rgba(0,0,0,0.2); }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem 4rem; }
 .form-group.full-width { grid-column: span 2; }
-.form-control { width: 100%; background: transparent; border: none; border-bottom: 1.5px solid rgba(255,255,255,0.15); padding: 15px 0; color: #fff; font-family: var(--font-body); font-size: 1.1rem; transition: var(--transition-smooth); font-weight: 300; }
+.form-control { 
+    width: 100%; background: transparent; border: none; 
+    border-bottom: 1.5px solid rgba(255,255,255,0.15); 
+    padding: 1.2rem 0; color: #fff; font-family: var(--font-body); 
+    font-size: 1rem; transition: var(--transition-smooth); font-weight: 400; 
+    border-radius: 0;
+}
 .form-control:focus { outline: none; border-bottom-color: var(--accent-gold); padding-left: 15px; background: rgba(255,255,255,0.02); }
 .form-control::placeholder { color: rgba(255,255,255,0.35); }
-select.form-control { cursor: pointer; }
-select.form-control option { background: var(--surface-dark); color: #fff; }
+
+/* Premium Select Cassette */
+select.form-control { 
+    cursor: pointer; 
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1.2rem;
+    padding-right: 40px !important;
+}
+select.form-control option { background: #0A0A0B; color: #fff; padding: 15px; }
 .form-submit { grid-column: span 2; display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; }
 .whatsapp-alt { font-size: 0.9rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
 .whatsapp-alt a { color: var(--accent-gold); font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
@@ -299,7 +316,13 @@ footer { background: var(--primary-bg); padding: 8rem 5% 4rem; border-top: 1px s
     .wa-float { bottom: 20px; right: 20px; width: 60px; height: 60px; font-size: 1.8rem; }
     .booking-container { padding: 3rem 1.5rem; border-radius: 24px; }
     .form-grid { gap: 2.5rem; }
-    .form-control { font-size: 1.15rem; padding: 20px 0; }
-    select.form-control { padding: 20px 10px; background: rgba(255,255,255,0.05); }
+    .form-control { font-size: 1.25rem; padding: 25px 5px; }
+    select.form-control { 
+        min-height: 70px; 
+        background-color: rgba(255,255,255,0.05); 
+        padding: 20px 15px !important; 
+        border-radius: 12px;
+        border-bottom: 2px solid var(--accent-gold);
+    }
     .form-submit { margin-top: 2rem; }
 }
